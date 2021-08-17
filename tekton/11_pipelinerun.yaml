@@ -1,0 +1,20 @@
+apiVersion: tekton.dev/v1beta1
+kind: PipelineRun
+metadata:
+  name: s2i-nodejs-pipelinerun
+spec:
+  serviceAccountName: pipeline
+  pipelineRef:
+    name: s2i-nodejs-pipeline
+  params:
+  - name: IMAGE
+    value: image-registry.openshift-image-registry.svc:5000/maps7/maps-front 
+  workspaces:
+  - name: shared-workspace
+    volumeClaimTemplate:
+      spec:
+        accessModes:
+        - ReadWriteOnce
+        resources:
+          requests:
+            storage: 1Gi
