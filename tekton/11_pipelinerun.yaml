@@ -7,6 +7,8 @@ spec:
   pipelineRef:
     name: s2i-nodejs-pipeline
   params:
+  - name: deployment-name
+    value: maps-front
   - name: IMAGE
     value: image-registry.openshift-image-registry.svc:5000/maps7/maps-front 
   workspaces:
