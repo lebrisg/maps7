@@ -1,0 +1,7 @@
+{
+"type": "FeatureCollection",
+                                                                                
+"features": [
+{ "type": "Feature", "id": 1, "properties": { "Nom": "Travel"}, "geometry": { "type": "LineString", "coordinates": [ [ 2.349902, 48.853026 ], [ 11.070207, 49.448262 ], [ 11.553167, 48.181844 ], [ 2.349902, 48.853026 ] ] } }
+]
+}

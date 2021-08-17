@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Maps</title> 
+  	<link rel="stylesheet" href="http://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+          integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+          crossorigin=""/>
+	<!--[if lte IE 8]>
+    	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.5.1/leaflet.ie.css" />
+	<![endif]-->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-easybutton@2/src/easy-button.css">
+	<script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<link href='http://fonts.googleapis.com/css?family=Milonga' rel='stylesheet' type='text/css'>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<style type="text/css">
+		body {
+    		    padding: 0;
+		    margin: 0;
+		}
+		html, body, #map {
+		    height: 100%;
+		    font-family: 'Milonga', cursive;
+		}
+		.leaflet-container .leaflet-control-zoom {
+		    margin-left: 13px;
+		    margin-top: 70px;
+		}
+		#map { z-index: 1;}
+		#title { z-index: 2; position: absolute; left: 10px; }
+	</style>	
+	
+</head>
+<body>
+	<h1 id="title">Maps</h1>
+	<div id="map"></div>
+        <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+          integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+          crossorigin=""></script>
+	<script src="https://cdn.jsdelivr.net/npm/leaflet-easybutton@2/src/easy-button.js"></script> 
+	<script>
+	  var map = L.map('map').setView([40.90714, 0.822596], 15);
+	  var markerLayerGroup = L.layerGroup().addTo(map);
+	  L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+		maxZoom: 18,
+		attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>'
+	  }).addTo(map);
+	  L.easyButton('<strong>B</strong>', function(btn, map){
+            var barcelone = [41.403572, 2.174408];
+            map.setView(barcelone, 14);
+          }).addTo(map);
+	  L.easyButton('<strong>V</strong>', function(btn, map){
+            var villa = [40.90714, 0.822596];
+            map.setView(villa, 16);
+          }).addTo(map);
+	  L.easyButton('<strong>E</strong>', function(btn, map){
+            var ebre = [40.644414, 0.68517];
+            map.setView(ebre, 14);
+          }).addTo(map);
+	  L.easyButton('<strong>P</strong>', function(btn, map){
+            var perpignan = [42.65974, 2.88493];
+            map.setView(perpignan, 17);
+          }).addTo(map);
+
+ 	  // load travel data
+          //$.getJSON("travel.geojson",function(data){
+          //  L.geoJson(data, { "color": "#FF7800" }).addTo(map);
+          //}); 
+
+ 	  // load data lane 1
+          $.getJSON("lane1.geojson",function(data){
+            L.geoJson(data, { "color": "#0078FF" }).addTo(map);
+          }); 
+
+ 	  // load data lane 2
+          $.getJSON("lane2.geojson",function(data){
+            L.geoJson(data, { "color": "#FF00FF" }).addTo(map);
+          }); 
+
+	  // load GeoJSON from an external file
+	  $.getJSON("poi.geojson",function(data){
+	    // add GeoJSON layer to the map once the file is loaded
+	    L.geoJson(data,{
+	      pointToLayer: function(feature,latlng){
+	        var marker = L.marker(latlng);
+	        marker.bindPopup(feature.properties.Nom + '<br/>' + feature.properties.Lieu + '<br/>' + feature.properties.Date);
+	        return marker;
+	      }
+	     }).addTo(map);
+	  });
+	  var popup = L.popup();
+          map.on('click', function(e) {
+            popup
+              .setLatLng(e.latlng)
+              .setContent(e.latlng.toString())
+              .openOn(map)
+          });
+	</script>
+</body>
+</html>
+

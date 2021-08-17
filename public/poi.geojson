@@ -1,0 +1,37 @@
+{
+"type": "FeatureCollection",
+                                                                                
+"features": [
+{ "type": "Feature", "id": 1, "properties": { "Nom": "Brit Hotel", "Lieu": "Rue du docteur Koch, 66100 Perpignan", "Metro": "", "Date": "30/06/2021"}, "geometry": { "type": "Point", "coordinates": [ 2.88493, 42.65974 ] } }
+,
+{ "type": "Feature", "id": 2, "properties": { "Nom": "Villa Tres Calas", "Lieu": "Carrer de la Caleta, 173, 43860 Tres Calas, Tarragona", "Metro": "", "Date": "01/07/2021"}, "geometry": { "type": "Point", "coordinates": [ 0.822596, 40.90714 ] } }
+,
+{ "type": "Feature", "id": 3, "properties": { "Nom": "PortAventura World", "Lieu": "Av. Pere Mola, Km 2, 43840, Tarragona", "Metro": "", "Date": "01/07/2021"}, "geometry": { "type": "Point", "coordinates": [ 1.153146, 41.086415 ] } }
+,
+{ "type": "Feature", "id": 4, "properties": { "Nom": "Pharmacie", "Lieu": "Carrer de Llevant, 43860, Les Tres Cales, Tarragona", "Metro": "", "Date": "01/07/2021"}, "geometry": { "type": "Point", "coordinates": [ 0.809174, 40.908279 ] } }
+,
+{ "type": "Feature", "id": 5, "properties": { "Nom": "Mercadona", "Lieu": "Carretera TV-3025 Sector 22-B1, 43860, L'Ametlla de Mar, Tarragona", "Metro": "", "Date": "01/07/2021"}, "geometry": { "type": "Point", "coordinates": [ 0.795951, 40.890815 ] } }
+,
+{ "type": "Feature", "id": 6, "properties": { "Nom": "Station Service", "Lieu": "TV-3025, PK .5, 43860, L'Ametlla de Mar, Tarragona", "Metro": "", "Date": "01/07/2021"}, "geometry": { "type": "Point", "coordinates": [ 0.798998, 40.887421 ] } }
+,
+{ "type": "Feature", "id": 7, "properties": { "Nom": "Station Service/Alas Benzinera", "Lieu": "N-340, 1121, 8 D, 43891, Tarragona", "Metro": "", "Date": "01/07/2021"}, "geometry": { "type": "Point", "coordinates": [ 0.856816, 40.949404 ] } }
+,
+{ "type": "Feature", "id": 10, "properties": { "Nom": "Sagrada Familia", "Lieu": "Carrer de Mallorca, 401, 08013 Barcelona", "Metro": "", "Date": "01/07/2021"}, "geometry": { "type": "Point", "coordinates": [ 2.174408, 41.403572 ] } }
+,
+{ "type": "Feature", "id": 11, "properties": { "Nom": "Tibidabo", "Lieu": "Placa del Tibidabo, 3, 4, 08035 Barcelona", "Metro": "", "Date": "01/07/2021"}, "geometry": { "type": "Point", "coordinates": [ 2.119412, 41.421422 ] } }
+,
+{ "type": "Feature", "id": 12, "properties": { "Nom": "Funicular del Tibidabo", "Lieu": "Placa del Doctor Andreu, s/n, 08035 Barcelona", "Metro": "", "Date": "01/07/2021"}, "geometry": { "type": "Point", "coordinates": [ 2.131106, 41.416466 ] } }
+,
+{ "type": "Feature", "id": 13, "properties": { "Nom": "Parc Guell", "Lieu": "08024 Barcelona", "Metro": "", "Date": "01/07/2021"}, "geometry": { "type": "Point", "coordinates": [ 2.152387, 41.414073 ] } }
+,
+{ "type": "Feature", "id": 14, "properties": { "Nom": "La Boqueria", "Lieu": "La Rambla, 91, 08001 Barcelona", "Metro": "", "Date": "01/07/2021"}, "geometry": { "type": "Point", "coordinates": [ 2.171554, 41.381735 ] } }
+,
+{ "type": "Feature", "id": 15, "properties": { "Nom": "Parking Las Remblas", "Lieu": "La Rambla, 20, 08002 Barcelona", "Metro": "", "Date": "01/07/2021"}, "geometry": { "type": "Point", "coordinates": [ 2.176157, 41.377972 ] } }
+,
+{ "type": "Feature", "id": 16, "properties": { "Nom": "Parking Esperanca I Guell", "Lieu": "Carrer de Sant Gugat del valles, 13, 08024 Barcelona", "Metro": "", "Date": "01/07/2021"}, "geometry": { "type": "Point", "coordinates": [ 2.153256, 41.411104 ] } }
+,
+{ "type": "Feature", "id": 30, "properties": { "Nom": "La Terrasseta", "Lieu": "Carrer Major, 2, 43549 Poble Nou, Tarragona", "Metro": "", "Date": "01/07/2021"}, "geometry": { "type": "Point", "coordinates": [ 0.685803, 40.645126 ] } }
+,
+{ "type": "Feature", "id": 31, "properties": { "Nom": "Bicis Delta natura", "Lieu": "Carrer Major, s/n, 43549 Poble Nou del Delta, Tarragona", "Metro": "", "Date": "01/07/2021"}, "geometry": { "type": "Point", "coordinates": [ 0.68517, 40.644414 ] } }
+]
+}
