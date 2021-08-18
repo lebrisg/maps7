@@ -9,6 +9,8 @@ spec:
   params:
   - name: deployment-name
     value: maps-front
+  - name: git-url
+    value: https://github.com/lebrisg/maps7.git
   - name: IMAGE
     value: image-registry.openshift-image-registry.svc:5000/maps7/maps-front 
   workspaces:

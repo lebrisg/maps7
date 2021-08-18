@@ -7,6 +7,13 @@ spec:
   - name: deployment-name
     type: string
     description: name of the deployment to be patched
+  - name: git-url
+    type: string
+    description: url of the git repo for the code of deployment
+  - name: git-revision
+    type: string
+    description: revision to be used from repo of the code for deployment
+    default: "main"
   - name: IMAGE
     type: string
     description: Location of the repo where image has to be pushed
@@ -22,11 +29,13 @@ spec:
       workspace: shared-workspace
     params:
     - name: url
-      value: https://github.com/lebrisg/maps7
+      value: $(params.git-url) 
     - name: subdirectory
       value: ""
     - name: deleteExisting
       value: "true"
+    - name: revision
+      value: $(params.git-revision)
   - name: s2i
     taskRef:
       name: s2i-nodejs
