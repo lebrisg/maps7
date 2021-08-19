@@ -1,0 +1,22 @@
+apiVersion: tekton.dev/v1beta1
+kind: PipelineRun
+metadata:
+  name: maps-back-pr
+spec:
+  serviceAccountName: pipeline
+  pipelineRef:
+    name: maps-back-pipeline
+  params:
+  - name: deployment-name
+    value: maps-back
+  - name: git-url
+    value: https://github.com/lebrisg/maps7.git
+  workspaces:
+  - name: shared-workspace
+    volumeClaimTemplate:
+      spec:
+        accessModes:
+        - ReadWriteOnce
+        resources:
+          requests:
+            storage: 500Mi
