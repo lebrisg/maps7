@@ -1,7 +1,5 @@
 apiVersion: triggers.tekton.dev/v1alpha1
-
 kind: Trigger
-
 metadata:
   name: maps-front-trigger
 spec:
