@@ -5,7 +5,7 @@ metadata:
 spec:
   serviceAccountName: pipeline
   pipelineRef:
-    name: s2i-nodejs-pipeline
+    name: maps-front-pipeline
   params:
   - name: deployment-name
     value: maps-front

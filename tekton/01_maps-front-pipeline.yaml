@@ -1,7 +1,7 @@
 apiVersion: tekton.dev/v1beta1
 kind: Pipeline
 metadata:
-  name: s2i-nodejs-pipeline
+  name: maps-front-pipeline
 spec:
   params:
   - name: deployment-name
