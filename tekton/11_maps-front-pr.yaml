@@ -1,7 +1,7 @@
 apiVersion: tekton.dev/v1beta1
 kind: PipelineRun
 metadata:
-  name: s2i-nodejs-pipelinerun
+  name: maps-front-pr
 spec:
   serviceAccountName: pipeline
   pipelineRef:
@@ -21,4 +21,4 @@ spec:
         - ReadWriteOnce
         resources:
           requests:
-            storage: 1Gi
+            storage: 500Mi
