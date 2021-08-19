@@ -56,7 +56,7 @@ spec:
       workspace: shared-workspace
     params:
     - name: manifest_dir
-      value: $(params.deployment-name)
+      value: "k8s/$(params.deployment-name)"
     runAfter:
     - s2i
   - name: update-deployment
