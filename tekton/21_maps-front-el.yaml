@@ -2,6 +2,7 @@ apiVersion: triggers.tekton.dev/v1alpha1
 kind: EventListener
 metadata:
   name: maps-front 
+
 spec:
   serviceAccountName: pipeline
   triggers:
