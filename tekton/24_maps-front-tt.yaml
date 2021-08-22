@@ -15,7 +15,7 @@ spec:
   - apiVersion: tekton.dev/v1beta1
     kind: PipelineRun
     metadata:
-      generateName: s2i-nodejs-pr-$(tt.params.git-repo-name)-
+      generateName: maps-front-pr-$(tt.params.git-repo-name)-
     spec:
       serviceAccountName: pipeline
       pipelineRef:
@@ -38,3 +38,5 @@ spec:
             resources:
               requests:
                 storage: 500Mi
+      - name: sonar-settings
+        emptyDir: {}
