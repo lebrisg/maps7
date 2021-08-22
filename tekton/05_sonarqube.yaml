@@ -24,7 +24,10 @@ spec:
       containers:
       - name: sonarqube
         imagePullPolicy: Always
-        image: docker.io/sonarqube:8-community-beta
+        image: sonarqube:9-community
+        env:
+        - name: SONAR_FORCEAUTHENTICATION
+          value: "false"
         ports:
         - containerPort: 9000
           protocol: TCP
