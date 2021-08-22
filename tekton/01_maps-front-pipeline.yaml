@@ -47,7 +47,7 @@ spec:
 #      value: https://sonarqube-maps7.apps.ocp4.asducode.fr
       value: https://sonarqube-maps.apps.ocp4.asducode.fr
     - name: SONAR_PROJECT_KEY
-      value: testapp
+      value: maps
     workspaces:
     - name: source-dir
       workspace: shared-workspace
