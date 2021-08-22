@@ -22,3 +22,5 @@ spec:
         resources:
           requests:
             storage: 500Mi
+  - name: sonar-settings
+    emptyDir: {}
