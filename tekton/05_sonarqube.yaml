@@ -28,6 +28,18 @@ spec:
         env:
         - name: SONAR_FORCEAUTHENTICATION
           value: "false"
+        - name: SONAR_JDBC_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: database-password
+              name: postgresql
+        - name: SONAR_JDBC_URL
+          value: "jdbc:postgresql://postgresql:5432/sonarqube"
+        - name: SONAR_JDBC_USERNAME
+          valueFrom:
+            secretKeyRef:
+              key: database-user
+              name: postgresql
         ports:
         - containerPort: 9000
           protocol: TCP
