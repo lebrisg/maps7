@@ -44,7 +44,6 @@ spec:
     - fetch-repository
     params:
     - name: SONAR_HOST_URL
-#      value: https://sonarqube-maps7.apps.ocp4.asducode.fr
       value: https://sonarqube-maps.apps.ocp4.asducode.fr
     - name: SONAR_PROJECT_KEY
       value: maps
@@ -76,7 +75,7 @@ spec:
       value: "k8s/$(params.deployment-name)"
     runAfter:
     - s2i
-    - code-analysis
+    #- code-analysis
   - name: update-deployment
     taskRef:
       name: update-deployment
