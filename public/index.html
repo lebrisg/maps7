@@ -61,11 +61,6 @@
             map.setView(perpignan, 17);
           }).addTo(map);
 
- 	  // load travel data
-          //$.getJSON("travel.geojson",function(data){
-          //  L.geoJson(data, { "color": "#FF7800" }).addTo(map);
-          //}); 
-
  	  // load data lane 1
           $.getJSON("lane1.geojson",function(data){
             L.geoJson(data, { "color": "#0078FF" }).addTo(map);
