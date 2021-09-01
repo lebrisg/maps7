@@ -34,31 +34,47 @@ if(!config.mongoURL) {
   return;
  }
 
-var db = null,
-    dbDetails = new Object();
+const client = new MongoClient(config.mongoURL);
 
-var initDb = function(callback) {
-  if (config.mongoURL == null) return;
-  if (mongodb == null) return;
+async function run() {
+  try {
+    // Connect the client to the server
+    await client.connect();
+    // Establish and verify connection
+    await client.db("admin").command({ ping: 1 });
+    console.log("Connected successfully to server");
+   } finally {
+    // Ensures that the client will close when you finish/error
+    await client.close();
+   }
+}
+run().catch(console.dir);
 
-  mongodb.connect(config.mongoURL, function(err, conn) {
-    if (err) {
-      callback(err);
-      return;
-    }
+//var db = null,
+//    dbDetails = new Object();
 
-    db = conn;
-    dbDetails.databaseName = db.databaseName;
-    dbDetails.url = config.mongoURLLabel;
-    dbDetails.type = 'MongoDB';
+//var initDb = function(callback) {
+//  if (config.mongoURL == null) return;
+//  if (mongodb == null) return;
 
-    console.log('Connected to MongoDB at: %s', config.mongoURL);
-  });
- };
+//  mongodb.connect(config.mongoURL, function(err, conn) {
+//    if (err) {
+//      callback(err);
+//      return;
+//    }
+
+//    db = conn;
+//    dbDetails.databaseName = db.databaseName;
+//    dbDetails.url = config.mongoURLLabel;
+//    dbDetails.type = 'MongoDB';
+
+//    console.log('Connected to MongoDB at: %s', config.mongoURL);
+//  });
+// };
 
 app.get("/", function(request, response) {
-  if (!db) {
-    initDb(function(err){});
+//  if (!db) {
+//    initDb(function(err){});
   }
   response.render("index.html");
  });
