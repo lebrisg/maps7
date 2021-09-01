@@ -1,0 +1,20 @@
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: scan-trivy 
+spec:
+  params:
+  - name: IMAGE
+    description: Location of image to be scanned 
+    type: string
+  steps:
+  - name: image-scan
+    image: aquasec/trivy 
+    command:
+    - trivy
+    args:
+      - --skip-update 
+      - --exit-code
+      - "1" 
+      - --input
+      - "$(inputs.params.IMAGE)" 
