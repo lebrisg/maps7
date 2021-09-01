@@ -42,7 +42,7 @@ async function run() {
     // Connect the client to the server
     await client.connect();
     // Establish and verify connection
-    await client.db("admin").command({ ping: 1 });
+    await client.db(config.mongoDatabase).command({ ping: 1 });
     console.log("Connected successfully to server at:", uri);
    } finally {
     // Ensures that the client will close when you finish/error
