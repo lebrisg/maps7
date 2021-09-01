@@ -1,24 +1,15 @@
 var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080,
-    ip   = process.env.IP   || process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0',
-    mongoURL = process.env.OPENSHIFT_MONGODB_DB_URL || process.env.MONGO_URL,
-    mongoURLLabel = "";
+    ip   = process.env.IP   || process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0';
 
-if (mongoURL == null) {
-  var mongoHost, mongoPort, mongoDatabase, mongoPassword, mongoUser;
+var mongoServiceName = 'MONGODB';
+var mongoHost = process.env['MONGODB_SERVICE_HOST'];
+var mongoPort = process.env['MONGODB_SERVICE_PORT'];
+var mongoDatabase = process.env['MONGODB_DATABASE'];
+var mongoPassword = process.env['MONGODB_PASSWORD'];
+var mongoUser = process.env['MONGODB_USER'];
 
-  var mongoServiceName = 'MONGODB';
-  var mongoHost = process.env['MONGODB_SERVICE_HOST'];
-  var mongoPort = process.env['MONGODB_SERVICE_PORT'];
-  var mongoDatabase = process.env['MONGODB_DATABASE'];
-  var mongoPassword = process.env['MONGODB_PASSWORD'];
-  var mongoUser = process.env['MONGODB_USER'];
-
-  mongoURLLabel = mongoURL = 'mongodb://';
-  mongoURL += mongoUser + ':' + mongoPassword + '@';
-
-  //mongoURLLabel += mongoHost + ':' + mongoPort + '/' + mongoDatabase;
-  //mongoURL += mongoHost + ':' +  mongoPort + '/' + mongoDatabase;
-}
+var mongoURL = 'mongodb://' + mongoHost + ':' +  mongoPort + '/' + mongoDatabase;
+var mongoURLLabel = mongoURL;
 
 function display() {
   console.log("port: "+port+", ip: "+ip);
