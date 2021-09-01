@@ -75,7 +75,7 @@ run().catch(console.dir);
 app.get("/", function(request, response) {
 //  if (!db) {
 //    initDb(function(err){});
-  }
+//  }
   response.render("index.html");
  });
 
