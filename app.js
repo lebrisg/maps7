@@ -38,10 +38,10 @@ var db = null,
     dbDetails = new Object();
 
 var initDb = function(callback) {
-  if (mongoURL == null) return;
+  if (config.mongoURL == null) return;
   if (mongodb == null) return;
 
-  mongodb.connect(mongoURL, function(err, conn) {
+  mongodb.connect(config.mongoURL, function(err, conn) {
     if (err) {
       callback(err);
       return;
@@ -49,10 +49,10 @@ var initDb = function(callback) {
 
     db = conn;
     dbDetails.databaseName = db.databaseName;
-    dbDetails.url = mongoURLLabel;
+    dbDetails.url = config.mongoURLLabel;
     dbDetails.type = 'MongoDB';
 
-    console.log('Connected to MongoDB at: %s', mongoURL);
+    console.log('Connected to MongoDB at: %s', config.mongoURL);
   });
  };
 
