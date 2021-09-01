@@ -8,6 +8,7 @@ var config = require("./config");
 
 // Assign app variable
 var app = express();
+app.disable("x-powered-by");
 
 // Enable prom-client to expose default application metrics
 const collectDefaultMetrics = promClient.collectDefaultMetrics;
