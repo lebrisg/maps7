@@ -9,7 +9,7 @@
     "mocha": "^2.4.5",
     "ejs": "^3.1.6",
     "express": "^4.17.1",
-    "mongodb": "^3.6.6",
+    "mongodb": "^3.7.0",
     "morgan": "^1.10.0",
     "prom-client": "^13.1.0",
     "object-assign":"4.1.0"
