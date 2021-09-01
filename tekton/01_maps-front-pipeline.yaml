@@ -40,8 +40,6 @@ spec:
   - name: code-analysis
     taskRef:
       name: sonarqube-scanner
-    runAfter:
-    - fetch-repository
     params:
     - name: SONAR_HOST_URL
       value: https://sonarqube-maps.apps.ocp4.asducode.fr
@@ -52,6 +50,8 @@ spec:
       workspace: shared-workspace
     - name: sonar-settings
       workspace: sonar-settings
+    runAfter:
+    - fetch-repository
   - name: s2i
     taskRef:
       name: s2i-nodejs
@@ -70,6 +70,9 @@ spec:
     params:
     - name: IMAGE
       value: $(params.IMAGE) 
+    workspaces:
+    - name: source-dir
+      workspace: shared-workspace
     runAfter:
     - s2i
   - name: apply-manifests
@@ -83,7 +86,6 @@ spec:
       value: "k8s/$(params.deployment-name)"
     runAfter:
     - s2i
-    #- code-analysis
   - name: update-deployment
     taskRef:
       name: update-deployment
