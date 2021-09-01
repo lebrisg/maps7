@@ -64,6 +64,14 @@ spec:
       value: $(params.IMAGE)
     runAfter:
     - fetch-repository
+  - name: scan-trivy
+    taskRef:
+      name: scan-trivy
+    params:
+    - name: IMAGE
+      value: $(params.IMAGE) 
+    runAfter:
+    - s2i
   - name: apply-manifests
     taskRef:
       name: apply-manifests
