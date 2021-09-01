@@ -1,0 +1,26 @@
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: scan-image 
+spec:
+  params:
+  - name: IMAGE
+    description: Location of image to be scanned 
+    type: string
+  workspaces:
+  - name: source-dir
+  steps:
+  - name: get-latest-cve-findings
+    image: quay.io/ksummersill2/ubuntu-wget:1.0.0
+    script: |
+      mkdir -p /tekton/home/.cache/trivy/db
+      wget -O /tekton/home/.cache/trivy/db/trivy-offline.db.tgz https://github.com/aquasecurity/trivy-db/releases/latest/download/trivy-offline.db.tgz --no-check-certificate
+      cd /tekton/home/.cache/trivy/db
+      tar xvf trivy-offline.db.tgz
+  - name: scan-image
+    image: aquasec/trivy 
+    workingDir: $(workspaces.source-dir.path)
+    script: |
+      trivy image --clear-cache 
+      trivy image --skip-update --severity='HIGH,CRITICAL' --vuln-type='os,library' --format='table' $(inputs.params.IMAGE) > /tekton/home/cve-report.txt
+      cat /tekton/home/cve-report.txt
