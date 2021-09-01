@@ -2,7 +2,7 @@ var http = require("http");
 var morgan = require("morgan");
 var express = require("express");
 var ejs = require("ejs");
-var mongodb = require("mongodb");
+const { MongoClient } = require("mongodb");
 var promClient = require("prom-client");
 var config = require("./config");
 
