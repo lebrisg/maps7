@@ -2,9 +2,8 @@ apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
   labels:
-    k8s-app: maps7-monitor
-  name: maps7-monitor
-  namespace: maps7 
+    k8s-app: maps-monitor
+  name: maps-monitor
 spec:
   endpoints:
     - interval: 30s
@@ -12,4 +11,4 @@ spec:
   scheme: http
   selector:
     matchLabels:
-      project: maps7
+      project: maps

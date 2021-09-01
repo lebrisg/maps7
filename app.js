@@ -13,7 +13,7 @@ var app = express();
 const collectDefaultMetrics = promClient.collectDefaultMetrics;
 
 // Define a custom prefix string for application metrics
-collectDefaultMetrics({ prefix: 'maps7:' });
+collectDefaultMetrics({ prefix: 'maps:' });
 
 // Define render engine used
 app.engine('html', ejs.renderFile);
