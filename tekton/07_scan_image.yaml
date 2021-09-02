@@ -8,8 +8,6 @@ spec:
   - name: IMAGE
     description: Location of image to be scanned 
     type: string
-#  workspaces:
-#  - name: source-dir
   steps:
   - name: get-latest-cve-findings
     image: quay.io/ksummersill2/ubuntu-wget:1.0.0
