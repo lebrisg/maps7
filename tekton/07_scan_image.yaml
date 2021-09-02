@@ -3,12 +3,13 @@ kind: Task
 metadata:
   name: scan-image 
 spec:
+#https://ksummersill.medium.com/setting-up-trivy-for-airgap-approach-within-ci-cd-3d429da21de4
   params:
   - name: IMAGE
     description: Location of image to be scanned 
     type: string
-  workspaces:
-  - name: source-dir
+#  workspaces:
+#  - name: source-dir
   steps:
   - name: get-latest-cve-findings
     image: quay.io/ksummersill2/ubuntu-wget:1.0.0

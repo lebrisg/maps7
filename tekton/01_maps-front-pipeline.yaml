@@ -70,9 +70,9 @@ spec:
     params:
     - name: IMAGE
       value: $(params.IMAGE) 
-    workspaces:
-    - name: source-dir
-      workspace: shared-workspace
+#    workspaces:
+#    - name: source-dir
+#      workspace: shared-workspace
     runAfter:
     - s2i
   - name: apply-manifests
