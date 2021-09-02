@@ -34,7 +34,7 @@ if(!config.mongoURL) {
   return;
  }
 
-uri = "mongodb://mongodb:" + config.mongoUser "/" + config.mongoPassword + "@" + config.mongoPort + "/" + config.mongoDatabase;
+uri = "mongodb://" + config.mongoUser ":" + config.mongoPassword + "@mongodb:" + config.mongoPort + "/" + config.mongoDatabase;
 const client = new MongoClient(uri);
 
 async function run() {
