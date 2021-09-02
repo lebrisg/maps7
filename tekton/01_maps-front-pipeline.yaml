@@ -64,7 +64,8 @@ spec:
     - name: default_option
       value: do-not-auto-add-defaults 
     - name: includelist
-      value: "no-extensions-v1beta,default-service-account,no-readiness-probe"
+      #value: "no-extensions-v1beta,default-service-account,no-readiness-probe"
+      value: "no-extensions-v1beta"
     - name: output_format
       value: sarif
     runAfter:
