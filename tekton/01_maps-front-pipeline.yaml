@@ -63,6 +63,8 @@ spec:
       value: "k8s/maps-front"
     - name: default_option
       value: add-all-built-in
+    - name: includelist
+      value: "no-extensions-v1beta,default-service-account,no-readiness-probe"
     runAfter:
     - fetch-repository 
   - name: s2i
