@@ -52,6 +52,19 @@ spec:
       workspace: sonar-settings
     runAfter:
     - fetch-repository
+  - name: kube-linter
+    taskRef:
+      name: kube-linter
+    workspaces:
+    - name: source
+      workspace: shared-workspace
+    params:
+    - name: manifest
+      value: "k8s/maps-front"
+    - name: default_option
+      value: add-all-built-in
+    runAfter:
+    - fetch-repository 
   - name: s2i
     taskRef:
       name: s2i-nodejs
@@ -63,7 +76,7 @@ spec:
     - name: IMAGE
       value: $(params.IMAGE)
     runAfter:
-    - fetch-repository
+    - kube-linter 
   - name: scan-image
     taskRef:
       name: scan-image
