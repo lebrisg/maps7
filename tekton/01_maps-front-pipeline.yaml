@@ -65,6 +65,8 @@ spec:
       value: do-not-auto-add-defaults 
     - name: includelist
       value: "no-extensions-v1beta,default-service-account,no-readiness-probe"
+    - name: output_format
+      value: sarif
     runAfter:
     - fetch-repository 
   - name: s2i
