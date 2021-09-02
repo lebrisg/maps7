@@ -85,6 +85,9 @@ spec:
   - name: scan-image
     taskRef:
       name: scan-image
+    workspaces:
+    - name: source-dir
+      workspace: shared-workspace
     params:
     - name: IMAGE
       value: $(params.IMAGE) 
