@@ -48,7 +48,7 @@
             await client.connect();
             // Establish and verify connection
             await client.db(config.mongoDatabase).command({ ping: 1 });
-            console.log("Connected successfully to server at:", config.mongoURL);
+            console.log("Connected Successfully to server at:", config.mongoURL);
            } finally {
             // Ensures that the client will close when you finish/error
             await client.close();
