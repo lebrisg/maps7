@@ -42,16 +42,19 @@
           integrity="nMxgrgYu7vo/LNe5NFHZOIkwbodaU13UdYiDoDCuo3P2sryEyffrk1R3c2tFGbZ83AqaMbO19yhKnVgHztuqAw=="
           crossorigin=""></script> 
 	<script>
-          try {
+          async function run() {
+           try {
             // Connect the client to the server
             await client.connect();
             // Establish and verify connection
             await client.db(config.mongoDatabase).command({ ping: 1 });
             console.log("Connected successfully to server at:", config.mongoURL);
-          } finally {
+           } finally {
             // Ensures that the client will close when you finish/error
             await client.close();
+           }
           }
+          run().catch(console.dir);
 
 	  var map = L.map('map').setView([40.90714, 0.822596], 15);
 	  var markerLayerGroup = L.layerGroup().addTo(map);
