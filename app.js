@@ -35,8 +35,7 @@ if(!config.mongoURL) {
   return;
  }
 
-uri = "mongodb://" + config.mongoUser + ":" + config.mongoPassword + "@mongodb:" + config.mongoPort + "/" + config.mongoDatabase;
-const client = new MongoClient(uri);
+const client = new MongoClient(config.mongoURL);
 
 async function run() {
   try {
@@ -44,7 +43,7 @@ async function run() {
     await client.connect();
     // Establish and verify connection
     await client.db(config.mongoDatabase).command({ ping: 1 });
-    console.log("Connected successfully to server at:", uri);
+    console.log("Connected successfully to server at:", config.mongoURL);
    } finally {
     // Ensures that the client will close when you finish/error
     await client.close();
