@@ -37,6 +37,14 @@ spec:
       value: "true"
     - name: revision
       value: $(params.git-revision)
+  - name: npm-audit
+    taskRef:
+      name: npm-audit
+    workspaces:
+    - name: source
+      workspace: shared-workspace
+    runAfter:
+    - fetch-repository  
   - name: code-analysis
     taskRef:
       name: sonarqube-scanner
@@ -51,7 +59,7 @@ spec:
     - name: sonar-settings
       workspace: sonar-settings
     runAfter:
-    - fetch-repository
+    - npm-audit 
   - name: kube-linter
     taskRef:
       name: kube-linter

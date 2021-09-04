@@ -1,0 +1,34 @@
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: npm-audit
+spec:
+  workspaces:
+  - name: source
+  steps:
+#  - name: dump-directory
+#    image: alpine
+#    command:
+#    - /bin/sh
+#    args:
+#    - '-c'
+#    - |
+#      set -ex
+#      find /workspace
+#    resources: {}
+  - name: npm-install
+    image: node
+    workingDir: /workspace/source
+    command:
+    - /bin/sh
+    - -c
+    args:
+    - npm install
+  - name: npm-audit
+    image: node
+    workingDir: /workspace/source
+    command:
+    - /bin/sh
+    - -c
+    args:
+    - npm audit
